@@ -1,4 +1,4 @@
-package mailservice.mailserver.mailserver;
+package mailservice.mailserver;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

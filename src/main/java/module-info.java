@@ -3,6 +3,6 @@ module mailservice.mailserver.mailserver {
     requires javafx.fxml;
 
 
-    opens mailservice.mailserver.mailserver to javafx.fxml;
-    exports mailservice.mailserver.mailserver;
+    opens mailservice.mailserver to javafx.fxml;
+    exports mailservice.mailserver;
 }
