@@ -1,18 +1,12 @@
 package mailservice.mailserver.model;
 
-import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleLongProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Mail {
     private long id;
     private String from;
-    private ArrayList<String> to;
+    private String to;
     private String subject;
     private String body;
     private LocalDateTime date;
@@ -20,7 +14,7 @@ public class Mail {
     // costruttori
     public Mail() {}
 
-    protected Mail(long id, String from, ArrayList<String> to, String subject, String body, LocalDateTime date) {
+    protected Mail(long id, String from, String to, String subject, String body, LocalDateTime date) {
         this.id = id;
         this.from = from;
         this.to = to;
@@ -46,11 +40,11 @@ public class Mail {
         this.from = from;
     }
 
-    public ArrayList<String> getTo() {
+    public String getTo() {
         return to;
     }
 
-    public void setTo(ArrayList<String> to) {
+    public void setTo(String to) {
         this.to = to;
     }
 

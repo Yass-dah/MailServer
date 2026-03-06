@@ -5,11 +5,20 @@ import mailservice.mailserver.model.Mailbox;
 
 import java.io.*;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PersistenceManager {
-    private static final String DATA_DIR = "../../../../../../../Data";
+    private static final String DATA_DIR = "data";
+
+    // mail esistente nel file sys
+    public synchronized static boolean emailExists(String email) {
+        email = email.toLowerCase();
+        File f = new File(DATA_DIR + "/" + email + ".txt");
+        return f.exists();
+    }
 
     // Persistence methods
     public synchronized static Mailbox loadMailbox(String email) {
@@ -20,18 +29,17 @@ public class PersistenceManager {
             String line;
             while ((line = br.readLine()) != null)
                 mailbox.addMail(getMailParsed(line));
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch(IOException e) {
+            System.err.println(e.getMessage());
         }
         return mailbox;
     }
 
     public synchronized static void saveMail(Mailbox mailbox, Mail mail) {
-        mailbox.addMail(mail);
         File file = new File(DATA_DIR, mailbox.getEmail() + ".txt");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) { // true = append
-            bw.write(parseMailString(mail));
             bw.newLine();
+            bw.write(parseMailString(mail));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -41,8 +49,8 @@ public class PersistenceManager {
         File file = new File(DATA_DIR, mailbox.getEmail() + ".txt");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             for (Mail mail : mailbox.getInbox()) {
-                bw.write(parseMailString(mail));
                 bw.newLine();
+                bw.write(parseMailString(mail));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -57,7 +65,7 @@ public class PersistenceManager {
         Mail mail = new Mail();
         mail.setId(Long.parseLong(parts[0]));
         mail.setFrom(parts[1]);
-        mail.setTo(getReceiversParsed(parts[2]));
+        mail.setTo(parts[2]);
         mail.setSubject(parts[3]);
         mail.setBody(parts[4]);
         mail.setDate(LocalDateTime.parse(parts[5]));

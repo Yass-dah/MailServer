@@ -32,4 +32,11 @@ public class AccountList {
     public Mailbox getInbox(String email){
         return inboxList.get(email);
     }
+
+    @Override
+    public String toString() {
+        return "AccountList{" +
+                "inboxList=" + inboxList +
+                '}';
+    }
 }

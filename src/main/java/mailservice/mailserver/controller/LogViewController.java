@@ -8,5 +8,7 @@ public class LogViewController {
     private ListView<String> logList;
 
     @FXML
-    protected void onStopButtonClick() { }
+    protected void onStopButtonClick() {
+
+    }
 }
