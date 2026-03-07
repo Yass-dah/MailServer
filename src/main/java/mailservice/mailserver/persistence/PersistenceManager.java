@@ -5,10 +5,9 @@ import mailservice.mailserver.model.Mailbox;
 
 import java.io.*;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Collections;
 
 public class PersistenceManager {
     private static final String DATA_DIR = "data";
@@ -35,13 +34,15 @@ public class PersistenceManager {
         return mailbox;
     }
 
-    public synchronized static void saveMail(Mailbox mailbox, Mail mail) {
-        File file = new File(DATA_DIR, mailbox.getEmail() + ".txt");
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) { // true = append
-            bw.newLine();
-            bw.write(parseMailString(mail));
-        } catch (IOException e) {
-            e.printStackTrace();
+    public synchronized static void saveMail(String to, Mail mail) {
+        for(String dest : getReceiversParsed(to)) {
+            File file = new File(DATA_DIR, dest + ".txt");
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file, true))) { // true = append
+                bw.newLine();
+                bw.write(parseMailString(mail));
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+            }
         }
     }
 
@@ -53,7 +54,7 @@ public class PersistenceManager {
                 bw.write(parseMailString(mail));
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
@@ -72,11 +73,10 @@ public class PersistenceManager {
         return mail;
     }
 
-    private static ArrayList<String> getReceiversParsed(String receivers){
+    public static ArrayList<String> getReceiversParsed(String receivers){
         String[] toArr = receivers.split(",");
         ArrayList<String> to = new ArrayList<>();
-        for (String t : toArr)
-            to.add(t);
+        Collections.addAll(to, toArr);
         return to;
     }
 

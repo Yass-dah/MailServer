@@ -6,10 +6,9 @@ import mailservice.mailserver.model.Mailbox;
 
 import java.io.*;
 import java.net.Socket;
-import java.time.LocalDateTime;
 
 public class ClientTask implements Runnable {
-    private Socket socket;
+    private final Socket socket;
     PersistenceController controller;
 
     private BufferedReader in;
@@ -82,7 +81,7 @@ public class ClientTask implements Runnable {
     }
 
     private void handleSendMail(String[] parts) {
-        // 1|from|to|subject|body
+        // 2|from|to|subject|body
         String from = parts[1];
         String to = parts[2];
         String subject = parts[3];
@@ -93,7 +92,7 @@ public class ClientTask implements Runnable {
         mail.setTo(to);
         mail.setSubject(subject);
         mail.setBody(body);
-        mail.setDate(LocalDateTime.now());
+        mail.initDateNow();
 
         controller.saveMail(to, mail);
         if(out != null)

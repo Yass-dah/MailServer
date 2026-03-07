@@ -38,9 +38,10 @@ public class PersistenceController {
         PersistenceManager.saveMailbox(accounts.getInbox(email));
     }
 
-    public void saveMail(String email, Mail mail) {
-        accounts.getInbox(email).addMail(mail);
-        PersistenceManager.saveMail(accounts.getInbox(email), mail);
+    public void saveMail(String emails, Mail mail) {
+        for(String dest : PersistenceManager.getReceiversParsed(emails))
+            accounts.getInbox(dest).addMail(mail);
+        PersistenceManager.saveMail(emails, mail);
     }
 
     public void deleteMail(String email, long mailId) {

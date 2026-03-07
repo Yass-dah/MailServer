@@ -1,0 +1,5 @@
+1|admin@mail.com|maria@mail.com|Registrazione|Benvenuta nel sistema|2026-03-01T08:50:00
+2|jojo@gmail.com|maria@mail.com|Domanda|Puoi inviarmi il file?|2026-03-02T13:10:22
+3|luca@mail.com|maria@mail.com|Re: Riunione|Perfetto, a dopo|2026-03-02T12:45:00
+3|jojo@gmail.com|maria@mail.com|richiesta|ho fameee daiii|2026-03-07T13:39:25.782959400
+0|jojo@gmail.com|maria@mail.com,luca@mail.com|TORNEO|heyy|2026-03-07T14:27:08.930000400

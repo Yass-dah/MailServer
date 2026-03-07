@@ -1,7 +1,6 @@
 package mailservice.mailserver.model;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 
 public class Mail {
     private long id;
@@ -11,17 +10,8 @@ public class Mail {
     private String body;
     private LocalDateTime date;
 
-    // costruttori
+    // costruttori, si usano solamente i setters
     public Mail() {}
-
-    protected Mail(long id, String from, String to, String subject, String body, LocalDateTime date) {
-        this.id = id;
-        this.from = from;
-        this.to = to;
-        this.subject = subject;
-        this.body = body;
-        this.date = date;
-    }
 
     // Getters & Setters
     public long getId() {

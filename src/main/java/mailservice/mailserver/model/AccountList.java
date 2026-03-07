@@ -8,7 +8,7 @@ public class AccountList {
 
     // costruttore
     public AccountList() {
-        inboxList = new HashMap<String, Mailbox>();
+        inboxList = new HashMap<>();
     }
 
     // Getter
