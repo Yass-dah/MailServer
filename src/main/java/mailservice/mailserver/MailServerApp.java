@@ -6,22 +6,39 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import mailservice.mailserver.controller.LogViewController;
 import mailservice.mailserver.controller.PersistenceController;
+import mailservice.mailserver.network.Server;
 
 import java.io.IOException;
 
 public class MailServerApp extends Application {
+    private Stage mainStage;
+    private Server server;
+
     @Override
     public void start(Stage stage) throws IOException {
+        mainStage = stage;
+        server = new Server();
         FXMLLoader fxmlLoader = new FXMLLoader(MailServerApp.class.getResource("server-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         LogViewController viewController = fxmlLoader.getController();
+        viewController.setMain(this);
         PersistenceController persController = new PersistenceController();
         persController.print();
-        mailservice.mailserver.network.Server server = new mailservice.mailserver.network.Server();
         server.start();
-        stage.setTitle("Mail Server");
-        stage.setScene(scene);
-        stage.show();
+        mainStage.setTitle("Mail Server");
+        mainStage.setScene(scene);
+        mainStage.show();
+        end();
+    }
+
+    public void end() {
+        mainStage.setOnCloseRequest(event -> {
+            stopServer();
+        });
+    }
+
+    public void stopServer(){
+        server.stop();
     }
 
     public static void main(String[] args) {

@@ -116,4 +116,13 @@ public class ClientTask implements Runnable {
         controller.deleteMail(email, id);
         out.println("MAIL_DELETED");
     }
+
+    public void close() {
+        try {
+            if(socket != null)
+                socket.close();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
 }
