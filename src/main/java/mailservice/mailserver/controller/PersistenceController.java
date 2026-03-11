@@ -20,12 +20,14 @@ public class PersistenceController {
         this.accounts = accounts;
     }
 
+    // operation methods
     public boolean emailExists(String email) {
         return PersistenceManager.emailExists(email);
     }
 
     public void loadMailbox(String email) {
         Mailbox mailbox = PersistenceManager.loadMailbox(email);
+        mailbox.updateMaxId();
         accounts.getInboxList().put(mailbox.getEmail(), mailbox);
     }
 
@@ -46,9 +48,11 @@ public class PersistenceController {
 
     public void deleteMail(String email, long mailId) {
         accounts.getInboxList().get(email).removeMail(mailId);
+        accounts.getInboxList().get(email).updateMaxId();
         PersistenceManager.saveMailbox(accounts.getInbox(email));
     }
 
+    // stampa
     public void print(){
         for(String email : accounts.getInboxList().keySet())
             System.out.println(accounts.getInbox(email));

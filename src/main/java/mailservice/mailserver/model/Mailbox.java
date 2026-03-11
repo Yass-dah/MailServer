@@ -3,7 +3,7 @@ package mailservice.mailserver.model;
 import java.util.ArrayList;
 
 public class Mailbox {
-    private long IdCounter = 0;
+    private long idCounter = 0;
     private String email;
     private ArrayList<Mail> inbox;
 
@@ -13,24 +13,16 @@ public class Mailbox {
         this.inbox = new ArrayList<>();
     }
 
-    // Getters & Setters
+    // Getters
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public ArrayList<Mail> getInbox() {
         return inbox;
     }
 
-    public void setInbox(ArrayList<Mail> inbox) {
-        this.inbox = inbox;
-    }
-
-    // inbox operation methods
+    // operation methods
     public synchronized void addMail(Mail mail) {
         if(mail == null) return;
         mail.setId(generateId());
@@ -43,7 +35,14 @@ public class Mailbox {
 
     // inizializzatori
     private long generateId() {
-        return IdCounter++;
+        return idCounter++;
+    }
+
+    public void updateMaxId() {
+        long max = 0;
+        for (Mail mail : inbox)
+            if (mail.getId() > max) max = mail.getId();
+        idCounter = max + 1;
     }
 
     // stampa

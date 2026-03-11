@@ -5,15 +5,16 @@ import mailservice.mailserver.controller.PersistenceController;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class Server {
     private static final int hostPort = 5000;
     private boolean running = true;
     private ServerSocket serverSocket;
-    private ArrayList<ClientTask> clients = new ArrayList<>();
+    private PersistenceController persistenceController;
 
+    // inizializza controller&socket + accetta connessioni + chiamata threads per client
     public void start() {
+        persistenceController = new PersistenceController();
         new Thread(() -> {
             try {
                 serverSocket = new ServerSocket(hostPort);
@@ -22,8 +23,7 @@ public class Server {
                     Socket socket = serverSocket.accept();
                     System.out.println("New client connected");
 
-                    ClientTask handler = new ClientTask(socket, new PersistenceController());
-                    clients.add(handler);
+                    ClientTask handler = new ClientTask(socket, persistenceController);
                     Thread client = new Thread(handler);
                     client.start();
                 }
@@ -33,13 +33,12 @@ public class Server {
         }).start();
     }
 
+    // stop accettazioni(run = false) + chiude socket
     public void stop(){
         running = false;
         try {
             if (serverSocket != null && !serverSocket.isClosed())
                 serverSocket.close();
-            for(ClientTask c: clients)
-                c.close();
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }

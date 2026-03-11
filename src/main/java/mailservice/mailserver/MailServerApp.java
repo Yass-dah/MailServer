@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import mailservice.mailserver.controller.LogViewController;
-import mailservice.mailserver.controller.PersistenceController;
 import mailservice.mailserver.network.Server;
 
 import java.io.IOException;
@@ -22,8 +21,6 @@ public class MailServerApp extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         LogViewController viewController = fxmlLoader.getController();
         viewController.setMain(this);
-        PersistenceController persController = new PersistenceController();
-        persController.print();
         server.start();
         mainStage.setTitle("Mail Server");
         mainStage.setScene(scene);
@@ -31,12 +28,12 @@ public class MailServerApp extends Application {
         end();
     }
 
+    // setAction per chiusura window
     public void end() {
-        mainStage.setOnCloseRequest(event -> {
-            stopServer();
-        });
+        mainStage.setOnCloseRequest(event -> stopServer());
     }
 
+    // stop running server
     public void stopServer(){
         server.stop();
     }

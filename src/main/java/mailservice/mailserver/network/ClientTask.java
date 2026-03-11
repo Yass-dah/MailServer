@@ -9,20 +9,20 @@ import java.net.Socket;
 
 public class ClientTask implements Runnable {
     private final Socket socket;
-    PersistenceController controller;
-
-    private BufferedReader in;
     private PrintWriter out;
+    private final PersistenceController controller;
 
+    // costruttore
     public ClientTask(Socket socket, PersistenceController controller) {
         this.socket = socket;
         this.controller = controller;
     }
 
+    // main task
     @Override
     public void run() {
         try {
-            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
 
             String request;
@@ -33,14 +33,11 @@ public class ClientTask implements Runnable {
         }
     }
 
+    // handlers operazioni
     private void handleRequest(String request) {
         String[] parts = request.split("\\|");
 
         switch (parts[0]) {
-            case "0":
-                handleCheckConn();
-                break;
-
             case "1":
                 handleCheckEmail(parts[1]);
                 break;
@@ -50,7 +47,7 @@ public class ClientTask implements Runnable {
                 break;
 
             case "3":
-                handleGetMails(parts[1]);
+                handleGetMails(parts[1], Long.parseLong(parts[2]));
                 break;
 
             case "4":
@@ -59,12 +56,8 @@ public class ClientTask implements Runnable {
         }
     }
 
-    private void handleCheckConn(){
-        if(out != null) out.println("OK");
-    }
-
     private void handleCheckEmail(String email) {
-        // 1|mail@mail.com
+        // 1|email
         if(out != null) {
             boolean emailFound = controller.getAccounts().containsAccount(email);
             if(emailFound) {
@@ -72,8 +65,8 @@ public class ClientTask implements Runnable {
                 return;
             }
             if(controller.emailExists(email)){
-                out.println("OK");
                 controller.loadMailbox(email);
+                out.println("OK");
                 return;
             }
             out.println("ERROR");
@@ -99,30 +92,27 @@ public class ClientTask implements Runnable {
             out.println("MAIL_SENT");
     }
 
-    private void handleGetMails(String email) {
+    private void handleGetMails(String email, long lastId) {
+        // 3|email|lastId
         Mailbox inbox = controller.getAccounts().getInbox(email);
-
-        System.out.println(inbox);
+        if(inbox == null){
+            out.println("END");
+            return;
+        }
+        System.out.println("last iddd: " + lastId);
         for (Mail mail : inbox.getInbox())
-            out.println(mail.getId()+"|"
-                    +mail.getFrom()+"|"
-                    +mail.getTo()+"|"
-                    +mail.getSubject()+"|"
-                    +mail.getBody()+"|"+mail.getDate()+"|");
+            if(mail.getId() > lastId)
+                out.println(mail.getId() + "|"
+                    + mail.getFrom() + "|"
+                    + mail.getTo() + "|"
+                    + mail.getSubject() + "|"
+                    + mail.getBody() + "|" + mail.getDate() + "|");
         out.println("END");
     }
 
     private void handleDeleteMail(String email, long id) {
+        // 4|email|id
         controller.deleteMail(email, id);
         out.println("MAIL_DELETED");
-    }
-
-    public void close() {
-        try {
-            if(socket != null)
-                socket.close();
-        } catch (IOException e) {
-            System.err.println(e.getMessage());
-        }
     }
 }

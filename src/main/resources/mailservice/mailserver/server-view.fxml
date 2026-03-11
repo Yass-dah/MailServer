@@ -21,7 +21,7 @@
           <Font name="System Bold"/>
         </font>
         </Button>
-        <ListView fx:id="logList" layoutX="32.0" layoutY="47.0" prefHeight="304.0" prefWidth="586.0" />
+        <ListView style="-fx-background-color:#d8d8d8" fx:id="logList" layoutX="32.0" layoutY="47.0" prefHeight="304.0" prefWidth="586.0" />
         <Label layoutX="566.0" layoutY="19.0" text="Running" textFill="#02841a">
         <font>
           <Font name="System Bold"/>
