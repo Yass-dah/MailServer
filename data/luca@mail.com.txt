@@ -1,3 +1,8 @@
 
 0|jojo@gmail.com|luca@mail.com|Re: Ciao|Tutto bene grazie!|2026-03-02T10:20
-2|jojo@gmail.com|maria@mail.com,luca@mail.com|TORNEO|heyy|2026-03-07T14:27:08.930000400
+1|luca@mail.com|luca@mail.com|hsfjksfsfdhfsd|sgdhsfhdf|2026-03-11T16:40:39.404026600
+2|jojo@gmail.com|maria@mail.com,luca@mail.com|Benvenuto|Account attivato correttamente|2026-03-12T15:34:58.906713500
+3|jojo@gmail.com|maria@mail.com,luca@mail.com|Benvenuto|Account attivato correttamente|2026-03-12T15:35:46.086072300
+4|jojo@gmail.com|maria@mail.com,luca@mail.com|Progetto|Hai visto le modifiche?|2026-03-12T15:36:17.728797400
+5|jojo@gmail.com|maria@mail.com,luca@mail.com|test communication|sfhjs|2026-03-12T15:36:50.330827400
+6|maria@mail.com|jojo@gmail.com,maria@mail.com,luca@mail.com|vi rispondo tutti|ciaoooo|2026-03-12T15:37:15.017624800

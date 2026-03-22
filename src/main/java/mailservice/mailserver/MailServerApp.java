@@ -21,6 +21,7 @@ public class MailServerApp extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         LogViewController viewController = fxmlLoader.getController();
         viewController.setMain(this);
+        viewController.setServer(server);
         server.start();
         mainStage.setTitle("Mail Server");
         mainStage.setScene(scene);

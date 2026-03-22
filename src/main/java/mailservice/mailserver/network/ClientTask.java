@@ -1,5 +1,7 @@
 package mailservice.mailserver.network;
 
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import mailservice.mailserver.controller.PersistenceController;
 import mailservice.mailserver.model.Mail;
 import mailservice.mailserver.model.Mailbox;
@@ -11,11 +13,13 @@ public class ClientTask implements Runnable {
     private final Socket socket;
     private PrintWriter out;
     private final PersistenceController controller;
+    private final ObservableList<String> logList;
 
     // costruttore
-    public ClientTask(Socket socket, PersistenceController controller) {
+    public ClientTask(Socket socket, PersistenceController controller, ObservableList<String> logList) {
         this.socket = socket;
         this.controller = controller;
+        this.logList = logList;
     }
 
     // main task
@@ -24,7 +28,6 @@ public class ClientTask implements Runnable {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
-
             String request;
             while ((request = in.readLine()) != null)
                 handleRequest(request);
@@ -36,7 +39,6 @@ public class ClientTask implements Runnable {
     // handlers operazioni
     private void handleRequest(String request) {
         String[] parts = request.split("\\|");
-
         switch (parts[0]) {
             case "1":
                 handleCheckEmail(parts[1]);
@@ -59,6 +61,7 @@ public class ClientTask implements Runnable {
     private void handleCheckEmail(String email) {
         // 1|email
         if(out != null) {
+            Platform.runLater(() -> logList.add("CLIENT LOGIN | checking email in data: " + email));
             boolean emailFound = controller.getAccounts().containsAccount(email);
             if(emailFound) {
                 out.println("OK");
@@ -75,6 +78,7 @@ public class ClientTask implements Runnable {
 
     private void handleSendMail(String[] parts) {
         // 2|from|to|subject|body
+        Platform.runLater(() -> logList.add("CLIENT SENDER | sending mail from " + parts[1] + " to " + parts[2]));
         String from = parts[1];
         String to = parts[2];
         String subject = parts[3];
@@ -86,7 +90,6 @@ public class ClientTask implements Runnable {
         mail.setSubject(subject);
         mail.setBody(body);
         mail.initDateNow();
-
         controller.saveMail(to, mail);
         if(out != null)
             out.println("MAIL_SENT");
@@ -94,13 +97,14 @@ public class ClientTask implements Runnable {
 
     private void handleGetMails(String email, long lastId) {
         // 3|email|lastId
+        controller.loadMailbox(email);
+        Platform.runLater(() -> logList.add("CLIENT INBOX | delivering inbox for " + email));
         Mailbox inbox = controller.getAccounts().getInbox(email);
         if(inbox == null){
             out.println("END");
             return;
         }
-        System.out.println("last iddd: " + lastId);
-        for (Mail mail : inbox.getInbox())
+        for(Mail mail : inbox.getInbox())
             if(mail.getId() > lastId)
                 out.println(mail.getId() + "|"
                     + mail.getFrom() + "|"
@@ -112,6 +116,7 @@ public class ClientTask implements Runnable {
 
     private void handleDeleteMail(String email, long id) {
         // 4|email|id
+        Platform.runLater(() -> logList.add("CLIENT INBOX | deleting mail " + id + " of " + email));
         controller.deleteMail(email, id);
         out.println("MAIL_DELETED");
     }

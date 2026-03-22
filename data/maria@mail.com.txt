@@ -1,7 +1,10 @@
-1|admin@mail.com|maria@mail.com|Registrazione|Benvenuta nel sistema|2026-03-01T08:50:00
-2|jojo@gmail.com|maria@mail.com|Domanda|Puoi inviarmi il file?|2026-03-02T13:10:22
-3|luca@mail.com|maria@mail.com|Re: Riunione|Perfetto, a dopo|2026-03-02T12:45:00
+
+0|admin@mail.com|maria@mail.com|Registrazione|Benvenuta nel sistema|2026-03-01T08:50
+1|jojo@gmail.com|maria@mail.com|Domanda|Puoi inviarmi il file?|2026-03-02T13:10:22
+2|luca@mail.com|maria@mail.com|Re: Riunione|Perfetto, a dopo|2026-03-02T12:45
 3|jojo@gmail.com|maria@mail.com|richiesta|ho fameee daiii|2026-03-07T13:39:25.782959400
-0|jojo@gmail.com|maria@mail.com,luca@mail.com|TORNEO|heyy|2026-03-07T14:27:08.930000400
-5|jojo@gmail.com|maria@mail.com|sjf|snjfdsf|2026-03-11T16:34:35.373035300
-6|maria@mail.com|maria@mail.com|dhsjfdfhudigsfg|ciao|2026-03-11T16:35:05.863311500
+4|jojo@gmail.com|maria@mail.com|sjf|snjfdsf|2026-03-11T16:34:35.373035300
+5|maria@mail.com|maria@mail.com,jojo@gmail.com|hdssfsdfdsf|dnfjdfd|2026-03-12T15:07:30.232491100
+6|jojo@gmail.com|maria@mail.com,luca@mail.com|Benvenuto|Account attivato correttamente|2026-03-12T15:34:58.906713500
+7|jojo@gmail.com|maria@mail.com,luca@mail.com|Progetto|Hai visto le modifiche?|2026-03-12T15:36:17.728797400
+8|jojo@gmail.com|maria@mail.com,luca@mail.com|test communication|sfhjs|2026-03-12T15:36:50.330827400
