@@ -7,4 +7,3 @@
 5|maria@mail.com|maria@mail.com,jojo@gmail.com|hdssfsdfdsf|dnfjdfd|2026-03-12T15:07:30.232491100
 6|jojo@gmail.com|maria@mail.com,luca@mail.com|Benvenuto|Account attivato correttamente|2026-03-12T15:34:58.906713500
 7|jojo@gmail.com|maria@mail.com,luca@mail.com|Progetto|Hai visto le modifiche?|2026-03-12T15:36:17.728797400
-8|jojo@gmail.com|maria@mail.com,luca@mail.com|test communication|sfhjs|2026-03-12T15:36:50.330827400

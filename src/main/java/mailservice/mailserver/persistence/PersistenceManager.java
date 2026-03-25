@@ -61,8 +61,8 @@ public class PersistenceManager {
     // operation methods per formattazione
     private static Mail getMailParsed(String line){
         String[] parts = line.split("\\|", -1);
-        if (parts.length < 6) return null;
 
+        if (parts.length < 6) return null;
         Mail mail = new Mail();
         mail.setId(Long.parseLong(parts[0]));
         mail.setFrom(parts[1]);

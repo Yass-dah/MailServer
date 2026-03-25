@@ -6,3 +6,7 @@
 4|jojo@gmail.com|maria@mail.com,luca@mail.com|Progetto|Hai visto le modifiche?|2026-03-12T15:36:17.728797400
 5|jojo@gmail.com|maria@mail.com,luca@mail.com|test communication|sfhjs|2026-03-12T15:36:50.330827400
 6|maria@mail.com|jojo@gmail.com,maria@mail.com,luca@mail.com|vi rispondo tutti|ciaoooo|2026-03-12T15:37:15.017624800
+7|jojo@gmail.com|luca@mail.com|mail parallela da jojo|heyywyye|2026-03-24T20:42:37.107546700
+8|maria@mail.com|luca@mail.com|mail parallela da maria|heyyyyyy|2026-03-24T20:42:40.742803600
+9|maria@mail.com|luca@mail.com|maria 1|eheyeyg|2026-03-24T20:43:39.757023700
+10|jojo@gmail.com|luca@mail.com|jojo 1|fdfdhfe|2026-03-24T20:43:41.260745700

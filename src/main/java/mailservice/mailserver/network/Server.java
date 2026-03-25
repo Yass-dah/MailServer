@@ -26,7 +26,7 @@ public class Server {
         new Thread(() -> {
             try {
                 serverSocket = new ServerSocket(hostPort);
-                System.out.println("Mail Server running at port: " + hostPort);
+                System.out.println("Mail Server started running...");
                 while (running) {
                     Socket socket = serverSocket.accept();
                     System.out.println("New client connected");
@@ -46,6 +46,7 @@ public class Server {
         try {
             if (serverSocket != null)
                 serverSocket.close();
+            System.out.println("Mail Server stopped running.");
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }

@@ -13,17 +13,9 @@ public class LogViewController {
     @FXML
     private ListView<String> logList;
 
-    // Getters & Setters
-    public MailServerApp getMain() {
-        return main;
-    }
-
+    // Setters
     public void setMain(MailServerApp main) {
         this.main = main;
-    }
-
-    public Server getServer() {
-        return server;
     }
 
     public void setServer(Server server) {
