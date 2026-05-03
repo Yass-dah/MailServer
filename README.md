@@ -2,5 +2,6 @@
 A mail server developed with JavaFX to handle sending mails, inbox operations between different clients connected with java socket communication and simple file system with no database(/data).
 ### Possible ameliorations to this project: 
 -  lock on each personal inbox to improve communication and decrease overhead
--  email registration
+-  email domain registration
 -  credentials on login
+-  implement IMAP/SMTP communication protocol
