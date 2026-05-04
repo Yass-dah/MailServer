@@ -7,3 +7,5 @@ It works as its purpose only if you have the MailServer one installed [https://g
 -  email domain registration
 -  credentials on login
 -  implement IMAP/SMTP communication protocol
+
+##### Warning: always check address and port of socket before running server or client
