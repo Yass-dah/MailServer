@@ -7,3 +7,5 @@
 6|jojo@gmail.com|maria@mail.com,luca@mail.com|Benvenuto|Account attivato correttamente|2026-03-12T15:34:58.906713500
 7|maria@mail.com|maria@mail.com|ciao|mando una mail a me stessa, ciao oggi lavoro su dei progetti, spero di finirli presto|2026-03-25T20:23:56.869466400
 8|jojo@gmail.com|maria@mail.com|ciao|ciao, avevo delle domande da farti, che ne dici di fissare un appuntamento?|2026-03-25T20:33:10.912365700
+8|luca@mail.com|jojo@gmail.com,maria@mail.com|progetto 26|ciaoo |2026-03-26T17:16:36.696084600
+9|maria@mail.com|luca@mail.com,jojo@gmail.com,maria@mail.com|Risposta: progetto 26|reply alll|2026-03-26T17:17:11.842196400

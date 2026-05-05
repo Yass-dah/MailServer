@@ -5,5 +5,7 @@
 3|jojo@gmail.com|jojo@gmail.com|myself mail|ciao oggi hai l'esame |2026-03-25T20:17:49.958461700
 4|jojo@gmail.com|jojo@gmail.com|esame 26|ciao, oggi hai l'esame di prog3 su javafxml, pattern mvc, observable e observer, java concurrence, socket|2026-03-25T20:19:12.140267100
 5|jojo@gmail.com|jojo@gmail.com|ciao|ciao come va?, oggi che si fa che mi dici aefefmdfdndd fjhsfjf|2026-03-25T20:26:51.256882700
-11|jojo@gmail.com|jojo@gmail.com,luca@mail.com|ciao|ciao, avevo delle domande da farti, che ne dici di fissare un appuntamento?|2026-03-25T20:29:13.366365600
+6|jojo@gmail.com|jojo@gmail.com,luca@mail.com|ciao|ciao, avevo delle domande da farti, che ne dici di fissare un appuntamento?|2026-03-25T20:29:13.366365600
 7|jojo@gmail.com|jojo@gmail.com|gita|sfnjdn djndfkjsjgn sdndjsnkj|2026-03-25T20:31:59.127775400
+8|luca@mail.com|jojo@gmail.com,maria@mail.com|progetto 26|ciaoo |2026-03-26T17:16:36.696084600
+9|maria@mail.com|luca@mail.com,jojo@gmail.com,maria@mail.com|Risposta: progetto 26|reply alll|2026-03-26T17:17:11.842196400

@@ -9,5 +9,3 @@
 7|jojo@gmail.com|luca@mail.com|mail parallela da jojo|heyywyye|2026-03-24T20:42:37.107546700
 8|maria@mail.com|luca@mail.com|mail parallela da maria|heyyyyyy|2026-03-24T20:42:40.742803600
 9|maria@mail.com|luca@mail.com|maria 1|eheyeyg|2026-03-24T20:43:39.757023700
-10|jojo@gmail.com|luca@mail.com|jojo 1|fdfdhfe|2026-03-24T20:43:41.260745700
-11|jojo@gmail.com|jojo@gmail.com,luca@mail.com|ciao|ciao, avevo delle domande da farti, che ne dici di fissare un appuntamento?|2026-03-25T20:29:13.366365600
