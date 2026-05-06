@@ -9,7 +9,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
-    private static final int hostPort = 5000;
+    private static final int hostPort = 50000;
     private boolean running = true;
     private ServerSocket serverSocket;
     private PersistenceController persistenceController;
