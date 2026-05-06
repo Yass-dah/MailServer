@@ -3,7 +3,7 @@ A simple mail server developed with JavaFX to handle sending mails, inbox operat
 
 This project is managed with Maven. To run it:
 ```
-mvn javafx:run
+mvn clean javafx:run
 ```
 
 It works as its purpose only if you have the MailClient one installed [https://github.com/Yass-dah/MailClient].
