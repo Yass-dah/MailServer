@@ -8,4 +8,4 @@ It works as its purpose only if you have the MailClient one installed [https://g
 -  credentials on login
 -  implement IMAP/SMTP communication protocol
 
-##### Warning: always check address and port of socket before running server or client
+##### Warning: always check address and port of socket(default=<localhost, 50000>) before running server or client
