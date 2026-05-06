@@ -1,5 +1,5 @@
 # MailServer
-A simple mail server developed with JavaFX and MVC pattern use to handle sending mails, inbox operations between different clients connected with java socket communication and simple file system with no database ([data](/data) => each email inbox is a .txt file).
+A simple mail server developed with JavaFX and MVC pattern use to handle sending mails, inbox operations between different clients connected with java socket communication and file system with no database ([each email inbox is a .txt file in data folder](/data)).
 
 This project is managed with Maven. To run it:
 ```
