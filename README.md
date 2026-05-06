@@ -16,5 +16,5 @@ It works as its purpose only if you have the MailClient one installed [https://g
 
 
 
-##### <ins>Warning</ins>: always check address and port of socket(default=<localhost, 50000>) before running server or client
+##### <ins>Warning</ins>: always check address and port of socket (default=<localhost, 50000>) before running server or client
 
