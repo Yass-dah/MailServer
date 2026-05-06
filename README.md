@@ -1,12 +1,12 @@
 # MailServer
-A simple mail server developed with JavaFX and MVC pattern use to handle sending mails, inbox operations between different clients connected with java socket communication and file system with no database ([each email inbox is a .txt file in data folder](/data)).
+A simple mail server developed with JavaFX and MVC pattern use to handle sending mails, inbox operations between different clients connected with java socket communication and file system with no database (each email inbox is a .txt file in [data folder](/data)).
 
 This project is managed with Maven. To run it:
 ```
 mvn clean javafx:run
 ```
 
-It works as its purpose only if you have the MailClient one installed [https://github.com/Yass-dah/MailClient].
+It works as its purpose only if you have the [MailClient one](https://github.com/Yass-dah/MailClient) installed.
 
 ### Possible ameliorations to this project: 
 -  lock on each personal inbox to improve communication and decrease overhead
